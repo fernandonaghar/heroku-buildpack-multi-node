@@ -29,7 +29,7 @@ if ! [ $? ]; then
     exit 1
 fi
 
-cp ${BUILD_DIR}/${APP_SUBFOLDER}/angular-cli-heroku.json ${BUILD_DIR}/angular-cli.json
+cp ${BUILD_DIR}/${APP_SUBFOLDER}/.angular-cli-heroku.json ${BUILD_DIR}/.angular-cli.json
 
 
 echo "Copied Procfile, angular-cli.json and package.json from ${APP_SUBFOLDER} successfully" | indent
