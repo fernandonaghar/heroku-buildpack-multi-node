@@ -11,15 +11,15 @@ ENV_DIR=$3
 echo "pre copy root LS"
 echo $(ls)
 
-export SUBPATH = $(cat ${ENV_DIR}/APP_SUBFOLDER)
-APP_SUBFOLDER=$(cat ${ENV_DIR}/APP_SUBFOLDER)
+APP_SUBFOLDER_VARIABLE=$(cat ${ENV_DIR}/APP_SUBFOLDER)
 
-if [[ -z "${APP_SUBFOLDER}" ]]; then
+if [[ -z "${APP_SUBFOLDER_VARIABLE}" ]]; then
     echo "APP_SUBFOLDER was not set. Aborting" | indent
     exit 1
 fi
 
 echo "APP_SUBFOLDER: " $APP_SUBFOLDER
+echo "APP_SUBFOLDER_VARIABLE: " $APP_SUBFOLDER_VARIABLE
 echo $(ls $SUBPATH)
 
 echo "post copy root LS"
