@@ -15,21 +15,7 @@ if [[ -z "${APP_SUBFOLDER}" ]]; then
     exit 1
 fi
 
-cp ${BUILD_DIR}/${APP_SUBFOLDER}/Procfile ${BUILD_DIR}/Procfile
+#move all contents of subfolder to env root
+mv  -v ${APP_SUBFOLDER}/* "${ENV_DIR}/"
 
-if ! [ $? ]; then
-    echo "FAILED to copy Procfile" | indent
-    exit 1
-fi
-
-cp ${BUILD_DIR}/${APP_SUBFOLDER}/package.json ${BUILD_DIR}/package.json
-
-if ! [ $? ]; then
-    echo "FAILED to copy package.json" | indent
-    exit 1
-fi
-
-cp ${BUILD_DIR}/${APP_SUBFOLDER}/.angular-cli-heroku.json ${BUILD_DIR}/.angular-cli.json
-
-
-echo "Copied Procfile, angular-cli.json and package.json from ${APP_SUBFOLDER} successfully" | indent
+echo "Copied all files successfully" | indent
