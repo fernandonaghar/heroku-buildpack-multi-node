@@ -8,9 +8,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-echo "pre copy root LS"
-echo $(ls $ENV_DIR)
-
 APP_SUBFOLDER_VARIABLE=$(cat ${ENV_DIR}/APP_SUBFOLDER)
 
 if [[ -z "${APP_SUBFOLDER_VARIABLE}" ]]; then
@@ -18,12 +15,7 @@ if [[ -z "${APP_SUBFOLDER_VARIABLE}" ]]; then
     exit 1
 fi
 
-echo "APP_SUBFOLDER: " $APP_SUBFOLDER
 echo "APP_SUBFOLDER_VARIABLE: " $APP_SUBFOLDER_VARIABLE
-echo $(ls $APP_SUBFOLDER_VARIABLE)
-
-echo "post copy root LS"
-echo $(ls $ENV_DIR)
 
 echo "BUILD_DIR: " $BUILD_DIR
 echo "CACHE_DIR: " $CACHE_DIR
