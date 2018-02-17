@@ -14,17 +14,16 @@ echo "CACHE_DIR: " $CACHE_DIR
 echo "ENV_DIR: " $ENV_DIR
 
 
-APP_SUBFOLDER=$(cat ${pwd}/APP_SUBFOLDER)
+APP_SUBFOLDER=$(cat ${ENV_DIR}/APP_SUBFOLDER)
+echo "APP_SUBFOLDER: " $APP_SUBFOLDER
 
 if [[ -z "${APP_SUBFOLDER}" ]]; then
+
     echo "APP_SUBFOLDER was not set. Aborting" | indent
     exit 1
 fi
 
-echo "APP_SUBFOLDER: " $APP_SUBFOLDER
-echo "pwd: " $pwd
-
 #move all contents of subfolder to env root
-mv  -v ${APP_SUBFOLDER}/* "${pwd}/"
+mv  -v ${APP_SUBFOLDER}/* "${ENV_DIR}/"
 
 echo "Copied all files successfully" | indent
