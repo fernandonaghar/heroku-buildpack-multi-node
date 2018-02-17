@@ -8,23 +8,18 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-ls >> folderstructure.txt
-
-echo "BUILD_DIR: " $BUILD_DIR
-echo "CACHE_DIR: " $CACHE_DIR
-echo "ENV_DIR: " $ENV_DIR
-
-
-APP_SUBFOLDER=$(cat ${BUILD_DIR}/APP_SUBFOLDER)
-echo "APP_SUBFOLDER: " $APP_SUBFOLDER
+APP_SUBFOLDER=$(cat ${ENV_DIR}/APP_SUBFOLDER)
 
 if [[ -z "${APP_SUBFOLDER}" ]]; then
-
     echo "APP_SUBFOLDER was not set. Aborting" | indent
     exit 1
 fi
 
-#move all contents of subfolder to env root
-mv  -v ${APP_SUBFOLDER}/* "${BUILD_DIR}/"
+echo "APP_SUBFOLDER: " $APP_SUBFOLDER
+echo "BUILD_DIR: " $BUILD_DIR
+echo "CACHE_DIR: " $CACHE_DIR
+echo "ENV_DIR: " $ENV_DIR
+
+cp ${BUILD_DIR}/${APP_SUBFOLDER}/* ${BUILD_DIR}/
 
 echo "Copied all files successfully" | indent
