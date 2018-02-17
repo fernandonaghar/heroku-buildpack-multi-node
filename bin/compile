@@ -20,6 +20,6 @@ echo "BUILD_DIR: " $BUILD_DIR
 echo "CACHE_DIR: " $CACHE_DIR
 echo "ENV_DIR: " $ENV_DIR
 
-cp ${BUILD_DIR}/${APP_SUBFOLDER}/* ${BUILD_DIR}/
+cp -r ${BUILD_DIR}/${APP_SUBFOLDER}/* ${BUILD_DIR}/
 
 echo "Copied all files successfully" | indent
