@@ -8,7 +8,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-APP_SUBFOLDER=$(cat ${ENV_DIR}/APP_SUBFOLDER)
+APP_SUBFOLDER=$(cat ${pwd}/APP_SUBFOLDER)
 
 if [[ -z "${APP_SUBFOLDER}" ]]; then
     echo "APP_SUBFOLDER was not set. Aborting" | indent
