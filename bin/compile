@@ -15,7 +15,7 @@ echo "CACHE_DIR: " $CACHE_DIR
 echo "ENV_DIR: " $ENV_DIR
 
 
-APP_SUBFOLDER=$(cat ${ENV_DIR}/APP_SUBFOLDER)
+APP_SUBFOLDER=$(cat ${BUILD_DIR}/APP_SUBFOLDER)
 echo "APP_SUBFOLDER: " $APP_SUBFOLDER
 
 if [[ -z "${APP_SUBFOLDER}" ]]; then
@@ -25,6 +25,6 @@ if [[ -z "${APP_SUBFOLDER}" ]]; then
 fi
 
 #move all contents of subfolder to env root
-mv  -v ${APP_SUBFOLDER}/* "${ENV_DIR}/"
+mv  -v ${APP_SUBFOLDER}/* "${BUILD_DIR}/"
 
 echo "Copied all files successfully" | indent
